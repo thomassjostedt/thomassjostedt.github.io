@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Skjema</title>
+  </head>
+  <body bgcolor="lightblue">
+
+    <h1>Registreringsskjema til min konfirmasjon</h1>
+
+    <form action="register.html">
+      <label>Navn:</label>
+      <input type="text" name="navn" value="navn">
+      <input type="number" name="alder" value="alder"><label>Alder:</label>
+      <br>
+
+      <label> Hva ønsker du å spise </label>
+      <input type="radio" name="rbmat" value="Taco"><label>Taco</label>
+      <input type="radio" name="rbmat" value="Pizza"><label>Pizza</label>
+      <input type="radio" name="rbmat" value="Torsk"><label>Torsk</label>
+    <br>
+
+    <lable> Hva ønsker du å drikke</lable>
+    <br>
+    <select name="VelgDrikke" required>
+      <option value="">Hva har du lyst til å drikke</option>
+      <option value="brus">Brus</option>
+      <option value="Øl">Øl</option>
+      <option value="Jäger">Jäger</option>
+    </select>
+    <br>
+
+    <input type="color" name="color" required>
+    <label>Fargeblind</label>
+    <br>
+    <input type="range"><label>Hvor full kommer du til å bli</label>
+    <br>
+    <label>Vil du ha karan der?</label>
+    <br>
+    <input type="checkbox"><label>Ja</label>
+    <input type="checkbox"><label>Nei</label>
+
+    <br>
+     <button type="submit" name="button">Put-in</button>
+
+    <br>
+    </form>
+
+  </body>
+</html>
