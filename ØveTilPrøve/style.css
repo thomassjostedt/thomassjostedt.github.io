@@ -1,0 +1,23 @@
+h1{
+  text-align:center;
+  color: brown;
+  padding: 20px;
+  border-style: ridge;
+  border-color: yellow;
+
+
+}
+
+body{
+  background-color: lightgreen;
+}
+ul li{
+  display: inline-block;
+
+}
+ul{
+  list-style: none;
+}
+ul a{
+  text-decoration: none;
+}

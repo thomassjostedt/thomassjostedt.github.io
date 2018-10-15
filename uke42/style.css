@@ -1,0 +1,14 @@
+body{
+  background-color: orange;
+  background-image: url(bilder/nett.jpg);
+  background-repeat: repeat-y;
+  background-size: 1450px;
+}
+
+h1{
+color: lightblue;
+}
+
+h2{
+  color: green;
+}

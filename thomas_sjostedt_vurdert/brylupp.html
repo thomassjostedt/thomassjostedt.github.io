@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Bryllup</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <header>
+      <i>
+        <h1>Bryllup</h1>
+      </i>
+    </header>
+
+    <ul>
+      <li><a href="MotvindEventbyråAS.html">Motvind Eventbyrå AS</a></li>
+      <li><a href="barnebursdag.html">Barnebursdag</a></li>
+      <li><a href="klassefest.html">Klassefest</a></li>
+    </ul>
+
+    <img src="bilder/bryllup.jpg" width="400px">
+
+    <form action="MotvindEventbyråAS.html" method="post">
+    <!--KOMMENTAR: Pass på at struktur/hierarki for nøstede tagger stemmer overens med
+    innhoppene i koden. -->
+    <div>
+    <label>Navn</label>
+    <input type="text" name="Navn" placeholder="Hva heter du" required>
+    </div>
+  <br>
+
+    <label>Kommer du med noen?</label>
+
+    <input type="radio" name="rbnavn" value="ja"> <span>Ja</span>
+    <input type="radio" name="rbnavn" value="nei"> <span>Nei</span>
+    <br><br>
+
+    <select name="Velgmat" required>
+    <option value="">Hva ønsker du å spise</option>
+    <option value="pizza">pizza</option>
+    <option value="tako">torsk</option>
+    <option value="torsk">torsk</option>
+    </select>
+
+  <br><br>
+  <button type="submitt">Send inn</button>
+
+</form>
+
+
+  </body>
+</html>

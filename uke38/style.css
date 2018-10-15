@@ -1,0 +1,59 @@
+body{
+  background-color: black
+
+  }
+  h1{
+    color: red;
+    padding: 20px;
+    text-align: center;
+    border-style: solid;
+    border-color: white;
+ }
+ main{
+   color: white;
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   grid-column-gap: 10px;
+   grid-row-gap: 10px;
+
+
+
+ }
+ header{
+   text-align: center;
+ }
+img{
+border: 3px solid white;
+display: block;
+width: 250px;
+height: 200px;
+
+}
+main>article{
+  background-color: purple;
+  margin: auto;
+}
+.navbar{
+  background-color: grey;
+  border-radius: 5px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+}
+ul li{
+  display: inline;
+  border: 2px solid white;
+}
+ul a{
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+  margin: 3px;
+
+
+}
+ul a:hover{
+  background-color: white;
+  color:black;
+}

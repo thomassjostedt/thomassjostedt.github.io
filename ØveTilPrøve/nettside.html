@@ -1,0 +1,47 @@
+<!DOCTYPE html>  <!-- Dette angir at det er et html document-->
+<html lang="nb" dir="ltr">
+  <head> <!--Angir informasjon om nettsiden-->
+
+    <meta charset="utf-8"> <!--Gjør at vi kan bruke æ,ø og å-->
+    <title></title>  <!--Dette kommer opp som titel på nettleseren-->
+    <link rel="stylesheet" href="style.css">
+
+  </head>
+
+  <body> <!--Innholdet i nettsiden skrives i body-->
+
+    <h1>Min reptilside</h1>
+    <a href="krokodille.html">
+    <img src="krokodille.jpg">
+    </a>
+
+    <form action="krokodille.html" method="post">
+      <div>
+        <label>Navn</label>
+        <input type="text" name="Navn" placeholder="Hva heter du" required>
+      </div>
+      <br>
+      <div >
+        <label>Alder</label>
+        <input type="number" name="Alder" placeholder="Alder" required>
+      </div>
+      <br>
+        <label>Hva ønsker du å drikke til maten?</label>
+        <br>
+        <input type="radio" name="rbDrikke" value="brus"> <span>Brus</span>
+        <input type="radio" name="rbDrikke" value="saft"> <span>Saft</span>
+        <input type="radio" name="rbDrikke" value="vann"> <span>Vann</span>
+      <br>
+      <select name="Velgmat" required>
+        <option value="">Hva ønsker du å spise</option>
+        <option value="pizza">pizza</option>
+        <option value="torsk">torsk</option>
+      </select>
+      
+      <button type="submitt">Send inn</button>
+
+    </form>
+    </audio>
+
+  </body>
+</html>
