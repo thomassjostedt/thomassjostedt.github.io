@@ -1,0 +1,68 @@
+body{
+  background-color:#E1F0EE ;
+  margin-left: 150px;
+  margin-right: 150px;
+
+}
+header{
+  display: grid;
+  grid-template-columns: 2fr 5fr 1fr 1fr 1fr;
+  background-color: black;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  
+}
+header>section>a{
+  text-decoration: none;
+}
+header>.lenke{
+  align-self: center;
+}
+header>.lenke>a{
+  color: white;
+}
+#logo>h3{
+  font-size: 32px;
+  color: white;
+  padding-left: 10px;
+  font-family: Helvetica,sans-serif;
+  margin: 1px;
+}
+main{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
+  grid-auto-rows: minmax(50px,auto);
+}
+main>section{
+  background-color: #BA7F7F
+}
+
+main>section>a>h1{
+  text-align: left;
+  padding: 1px;
+  font-size: 50px;
+  margin: auto;
+}
+main>section>a{
+text-decoration: none;
+}
+
+main>section>a>img{
+  width: 100%;
+  display: block;
+}
+
+
+.middelssak{
+grid-column: span 2;
+grid-row: span 2;
+}
+.storsak{
+  grid-column: span 3;
+  grid-row: span 3;
+}
+img{
+
+}

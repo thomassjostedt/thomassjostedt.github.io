@@ -1,0 +1,34 @@
+body{
+  background-color: ;
+
+}
+header{
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  background-color: grey;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+  }
+
+h1{
+  text-align: center;
+}
+
+#fotball{
+  margin-top: 100px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 100%;
+  text-align: center;
+}
+
+img{
+
+}
+footer{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-align: center;
+}
