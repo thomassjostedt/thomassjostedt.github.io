@@ -40,6 +40,7 @@ width: 350px;
 }
 
 
+
 h1{
   text-align: center;
 }
@@ -62,12 +63,8 @@ h1{
 
 }
 
-}
-footer{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  text-align: center;
-}
+
+
 
 
 .Hvaskjer{
@@ -78,22 +75,27 @@ footer{
   overflow: hidden;
   text-align: center;
   grid-gap: 5px;
+
+
+}
+main a{
+  text-decoration: none;
+}
+.Merkesko{
+  border-style: solid;
+
 }
 .logo{
   width: 120px;
 }
 .linje{
   display: block;
-  width: 1100px;
+  width: 100%;
   text-align: center;
 }
 
-#Puma{
-  margin-top: 150px;
-}
-#adidas{
-  margin-top: 150px;
-}
-#Nike{
-  margin-top: 150px;
+
+
+.Overskrift{
+margin-top: 120px;
 }
