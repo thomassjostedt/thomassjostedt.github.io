@@ -5,11 +5,13 @@
     <title>Kjøp</title>
     <link rel="stylesheet" href="style.css">
   </head>
+
   <body>
+
     <header>
       <section>
         <a href="Forside.html">
-          <img src="bilder/logo.jpg" class="logo" alt=""></a>
+        <img src="bilder/logo.jpg" class="logo" alt=""></a>
       </section>
 
       <section class="lenke">
@@ -24,21 +26,29 @@
         <a href="puma.html">Puma</a>
       </section>
 
-      <section class="lenke">
-        <a href="info.html">Info</a>
+      <section class="dropdown">
+        <button class="dropbtn"><b>Info</b>
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="kontaktoss.html">Kontakt Oss</a>
+          <a href="omoss.html">Om oss</a>
+          <a href="hvemervi.html">Hvem er vi</a>
+
+        </div>
       </section>
     </header>
 
-
     <h1 class="Overskrift">Nike Mercurial</h1>
-    <main class="Hvaskjer">
+
+    <main class="kjøpprodukter">
       <section>
-        <img src="bilder/nikeMercurialBlack.png" width="350px;">
+        <img src="bilder/nikeMercurialBlack.png" class="storsko">
       </section>
 
-      <section >
+      <section class="Kjøp">
         <p>
-          Nike Mercurial Superfly 6 Elite FG Stealth Ops - Sort
+          Nike Mercurial Elite FG Stealth Ops - Sort
           Ordren er gitt og målet er satt. Få overblikket, nøytralisere motstanderen og hent hjem trofeet.  Bli en del av Stealth Ops og fullfør misjonen.
           Mercurial brukes av spillere som Cristiano Ronaldo, Neymar, Kylian Mbappé og Eden Hazard
           Flyknit overdel i én del
@@ -46,18 +56,21 @@
         </p>
         <br>
         <p>Pris: 2000kr;</p>
-        <select name="Velgstørelse" required>
-          <option value="">Velg størelse</option>
-          <option value="størelse 1">40</option>
-          <option value="størelse 2">41</option>
-          <option value="størelse 3">42</option>
-          <option value="størelse 4">43</option>
-          <option value="størelse 5">44</option>
-          <option value="størelse 6">45</option>
-        </select>
-      <br><br>
-      <button type="submit">Gå til betaling</button>
-    </section>
+        <form action="sendinn.html">
+          <select name="Velgstørelse" required>
+            <option value="">Velg størelse</option>
+            <option value="størelse 1">40</option>
+            <option value="størelse 2">41</option>
+            <option value="størelse 3">42</option>
+            <option value="størelse 4">43</option>
+            <option value="størelse 5">44</option>
+            <option value="størelse 6">45</option>
+          </select>
+          <br><br>
+          <button type="submit">Gå til betaling</button>
+
+        </form>
+      </section>
     </main>
 
     <footer>
@@ -70,6 +83,6 @@
       <p>1337 Sandvika</p>
       <p>TLF: 91151565</p>
     </footer>
-    </footer>
+
   </body>
 </html>
