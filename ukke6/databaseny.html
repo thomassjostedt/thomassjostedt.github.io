@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+
+
+  <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyAkQ2jwxkoCx4TL8jb1bqmhaf4yVjUKHLw",
+      authDomain: "databaseny123.firebaseapp.com",
+      databaseURL: "https://databaseny123.firebaseio.com",
+      projectId: "databaseny123",
+      storageBucket: "databaseny123.appspot.com",
+      messagingSenderId: "1063016083879"
+    };
+    firebase.initializeApp(config);
+  </script>
+
+  <body>
+    <script type="text/javascript">
+    const db=firebase.database();
+    const bloggere= db.ref ("bloggere");
+
+    bloggere.push ({
+      "navn":"Sophie elise",
+      "følgere": 50000,
+      "alder":23
+    });
+    bloggere.push ("Sophie Elise");
+    bloggere.push ("Sophie Elise");
+
+    const billgates = bloggere.child("9040400");
+
+    billgates.set({
+      "navn": "Bill gates",
+      "epost": "billy9"
+    });
+
+    const stevejobs = bloggere.child("40437421");
+    stevejobs.set({
+      "navn": "steve jobs",
+      "epost": "yeyeye"
+    });
+
+      const gayBoy = bloggere.child("91151515");
+      stevejobs. set({
+        "navn": "thomas",
+        "epost": "yoooman"
+      });
+    </script>
+  </body>
+</html>

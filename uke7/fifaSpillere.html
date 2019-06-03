@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="no" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>FIFAspillere</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyA_5obzaQkKZqNkAUhH2axCbdN7a25knl4",
+        authDomain: "fifaspillere-93928.firebaseapp.com",
+        databaseURL: "https://fifaspillere-93928.firebaseio.com",
+        projectId: "fifaspillere-93928",
+        storageBucket: "",
+        messagingSenderId: "1067709222542"
+      };
+      firebase.initializeApp(config);
+    </script>
+
+  </head>
+  <body>
+    <button type="button" name="button" onclick="hoyestRating()">høyeste rating</button>
+    <button type="button" name="button" onclick="lavestRating()">lavest rating</button>
+    <button type="button" name="button" onclick="bestSkillz()">skillzzzzzz</button>
+
+    <main>
+      <section id="secPlayers">
+
+      </section>
+    </main>
+
+    <script type="text/javascript">
+    //refferanser til databasen
+    const db = firebase.database();
+    const players = db.ref("players");
+
+    const secVarer = document.querySelector("#secPlayers");
+
+    function visPlayer(snapshot){
+      console.log(snapshot.val());
+      let players = snapshot.val();
+
+      let nySec = document.createElement("div");
+
+      secVarer.innerHTML += `
+        <div>
+          <h1>${players.Name}: ${players.Overall}</h1>
+          <img src=${players.Photo}>
+          <p><b>posisjon:</b> ${players.Position}</p>
+          <p><b>skillz:</b> ${players["Skill Moves"]}</p>
+        </div>
+      `
+      secPlayers.insertBefore(nysec,secPlayers.childNodes[0]);
+    }
+
+    function hoyestRating(){
+      players
+      .orderByChild("Overall") //sorteringsfunskjon
+      .limitToLast(100) //sorteringsfunksjon
+      .on("child_added",visPlayer);
+    }
+
+    function lavestRating(){
+      players
+      .orderByChild("Overall") //sorteringsfunskjon
+      .limitToFirst(100) //sorteringsfunksjon
+      .on("child_added",visPlayer);
+    }
+
+    function bestSkillz(){
+      players
+      .orderByChild("Skill Moves") //sorteringsfunskjon
+      .limitToLast(100) //sorteringsfunksjon
+      .on("child_added",visPlayer);
+    }
+
+    </script>
+
+  </body>
+</html>

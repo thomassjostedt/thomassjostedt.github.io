@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase.js"></script>
+    <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyBeJ9D9n63FNWCpyVbXvzkeuVAAUosfd0c",
+      authDomain: "minforstedatabase123-d72b0.firebaseapp.com",
+      databaseURL: "https://minforstedatabase123-d72b0.firebaseio.com",
+      projectId: "minforstedatabase123-d72b0",
+      storageBucket: "minforstedatabase123-d72b0.appspot.com",
+      messagingSenderId: "268120241984"
+      };
+      firebase.initializeApp(config);
+      </script>
+  </head>
+  <body>
+
+    <form class="" method="post" >
+      <label for="inpNavn">Navn</label>
+      <input id="inpNavn" type="text" name="navn" value="" placeholder="Navn">
+      <label for="inpTelefon">Telefon</label>
+      <input id="inpTelefon" type="text" name="telefon" value="" placeholder="telefon">
+      <button id="btnKnapp" type="button" name="button">Send inn</button>
+    </form>
+
+    <h1>Superchat</h1>
+      <script type="text/javascript">
+        let database=firebase.database();
+        let meldinger=database.ref("meldinger")
+        let nyMelding={
+          "avsender":"KariKu",
+          "tekst": "Du liker gutter"
+        };
+        meldinger.push(nyMelding)
+      </script>
+      
+
+    <script type="text/javascript">
+
+    const db = firebase.database();
+    const kontaktliste = db.ref("kontaktliste")
+
+    const inpNavn =document.querySelector("#inpNavn");
+    const inpTelefonn =document.querySelector("#inpTelefon");
+    const btnKnapp =document.querySelector("#btnKnapp");
+
+    btnKnapp.onclick =function(event){
+      event.preventDefault();
+      let navn = inpNavn.value;
+      let telefon = inpTelefon.value;
+      kontaktliste.push(
+        {
+          "name": navn,
+          "telephone": telefon
+        }
+      );
+    }
+
+
+
+
+    kontaktliste.push(
+      {
+        "First name":"Thomas",
+        "Last name":"Sjostedt",
+        "Telefon":91151565
+      }
+    )
+    </script>
+  </body>
+</html>

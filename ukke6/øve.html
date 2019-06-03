@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+
+      <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+      <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyAkQ2jwxkoCx4TL8jb1bqmhaf4yVjUKHLw",
+        authDomain: "databaseny123.firebaseapp.com",
+        databaseURL: "https://databaseny123.firebaseio.com",
+        projectId: "databaseny123",
+        storageBucket: "databaseny123.appspot.com",
+        messagingSenderId: "1063016083879"
+      };
+      firebase.initializeApp(config);
+    </script>
+  </head>
+
+  <body>
+
+    <section>
+      <form id="skjema">
+        <input id="inpNavn" type="text" placeholder="Navn" required>
+        <input id="inpTelefon" type="text" placeholder="Telefon" required>
+        <input id="inpEpost" type="text" placeholder="Epost" required>
+        <button type="submit">Registrer kontakt</button>
+      </form>
+    </section>
+
+    <section id="secKontakter">
+
+    </section>
+
+    <script src="main.js" charset="utf-8"> </script>
+
+
+  </body>
+</html>

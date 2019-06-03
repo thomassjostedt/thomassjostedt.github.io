@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Spillere</title>
+    <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyC3MoQ_GeLaH4NVnXfuVABNbDmdcoynAzo",
+        authDomain: "prosjekt-database.firebaseapp.com",
+        databaseURL: "https://prosjekt-database.firebaseio.com",
+        projectId: "prosjekt-database",
+        storageBucket: "",
+        messagingSenderId: "400136547644"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header>
+      <section>
+        <a href="index.html">
+        <img src="bilder/Logo.png" class="logo" alt=""></a>
+      </section>
+
+      <section class="lenke">
+        <a href="Spillere.html">Players</a>
+      </section>
+
+      <section class="lenke">
+        <a href="Stats.html">Stats</a>
+      </section>
+
+      <section class="lenke">
+        <a href="VideosAndMore.html">Goals and Skills</a>
+      </section>
+
+      <section class="dropdown">
+        <button class="dropbtn"><b>Info</b>
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="kontaktoss.html">Kontakt Oss</a>
+          <a href="omoss.html">Unge Talenter</a>
+          <a href="hvemervi.html">Hvem er vi</a>
+    </header>
+
+    <section id=button2>
+      <button class="button"type="button" onclick="visKeepere()" >Keepere</button>
+      <button class="button"type="button" onclick="visDefenders()" >Forsvarspillere</button>
+      <button class="button"type="button" onclick="visMidfielders()" >Midtbanespillere</button>
+      <button class="button"type="button" onclick="visForwards()" >Angrepsspillere</button>
+    </section>
+
+    <main id="spillere">
+
+    </main>
+
+    <script type="text/javascript">
+    //Referanser til HTML-elementer
+    const spillere = document.querySelector("#spillere");
+
+    //referanser til database og spillere
+    const db = firebase.database();
+    const players = db.ref("players");
+
+    // Javascript-funksjon for å generere HTML-kode for spillere
+    function genererHTML(snapshot){
+      let player = snapshot.val();
+      let key = snapshot.key;
+      console.log(player);
+      spillere.innerHTML +=`
+          <div class="players">
+            <h1>${player.lastName}, ${player.firstName} # ${player.draktNummer}</h1>
+            <img src="${player.bilde}" alt="player image" class="spiller">
+            <p><b>Position:</b> ${player.posisjon}</p>
+            <a href="Spiller.html?id=${key}">more</a>
+          </div>
+      `;
+    }
+    //funksjoner for å vise de forskjellige spillerene
+    function visKeepere(){
+      spillere.innerHTML = "";
+      players.orderByChild("posisjon").equalTo("Keeper").on("child_added", genererHTML);
+    }
+    function visDefenders(){
+      spillere.innerHTML = "";
+      players.orderByChild("posisjon").equalTo("Defender").on("child_added", genererHTML);
+    }
+    function visMidfielders(){
+      spillere.innerHTML = "";
+      players.orderByChild("posisjon").equalTo("Midtfielder").on("child_added", genererHTML);
+    }
+    function visForwards(){
+      spillere.innerHTML = "";
+      players.orderByChild("posisjon").equalTo("Attacker").on("child_added", genererHTML);
+    }
+    visKeepere()
+    </script>
+
+    <footer>
+      <center>
+        <img class="linje" src="/Users/thomassjstedt/Documents/GitHub/thomassjostedt.github.io/Fotballnettside/bilder/BlackLine.png" alt="">
+      </center>
+      <p>Kontakt oss</p>
+      <p>Manchester United Fan Page</p>
+      <p>Vendelåsen 8</p>
+      <p>1396 Nesøya</p>
+      <p>TLF: 91151565</p>
+    </footer>
+  </body>
+</html>

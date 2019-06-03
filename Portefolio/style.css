@@ -1,0 +1,63 @@
+body{
+  background-color: #949aa3;
+}
+
+main>h1{
+  text-align: center;
+}
+#MittArbeidSec{
+  padding-top: 1rem;
+  max-width: 970px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 400px 400px;
+  grid-gap: 5rem;
+}
+.MittArbeid{
+  background-color: #313131;
+  border-style: solid;
+  border-radius: 2rem;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-position: center;
+  background-size: cover;
+  overflow:hidden;
+  box-shadow: 5px 10px
+}
+.MittArbeid p {
+  font-weight: bold;
+  font-size: 20px;
+  color: white;
+  transform: translateX(-220%);
+  transition: 0.5s;
+}
+.MittArbeid a{
+  background-color: darkblue;
+  padding: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+  transform: translateX(220%);
+  transition: 0.5s;
+}
+.MittArbeid:hover>p{
+  transform: translateX(0);
+}
+.MittArbeid:hover>a{
+  transform: translateX(0);
+}
+.MittArbeid>h1{
+  text-align: center;
+  color: white;
+  font-size: 30px;
+}
+@media(max width: 600px) {
+ #MittArbeidSec{
+   display: grid;
+   grid-template-columns: 1fr;
+ }
+}

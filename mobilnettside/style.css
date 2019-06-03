@@ -1,0 +1,56 @@
+body{
+background-image: url(https://s3-eu-central-1.amazonaws.com/sportsbibelen-s3/content/uploads/2018/07/14182257/Messi-FCB-980x551.jpg);
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+
+
+main{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  background-color: yellow;
+
+}
+
+@media(max-width:1400px){
+  main{
+    grid-template-columns:1fr 1fr 1fr 1fr;
+    background-image: url("https://www.cheyennehomestore.com/files/2018/06/smiles.jpg");
+}
+@media(max-width:1000px){
+  main{
+    grid-template-columns:1fr 1fr 1fr;
+    background-color: green;
+  }
+}
+@media(max-width:800px){
+  main{
+    grid-template-columns:1fr 1fr 1fr;
+    background-image: url("https://www.cheyennehomestore.com/files/2018/06/smiles.jpg");   
+  }
+}
+@media(max-width:600px){
+  main{
+    grid-template-columns:1fr;
+    background-color: blue;
+  }
+}
+img{
+  width:100%
+}
+/*Navigasjonsbar*/
+header>nav{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+
+@@media (max-width:500px;) {
+header>nav{
+  flex-direction: column;
+  align-items: center;
+}
+}
+/*Navigasjonsbar slutt*/

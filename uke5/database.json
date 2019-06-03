@@ -1,0 +1,70 @@
+{
+  "1":{
+    "svar": "En primærnøkkel er noe man bruker i en database som  gjør at vi raskt
+    kan finne opplysninger om et bestemt objekt"
+    },
+  "2":{
+    "a":{
+      "svar": "Elever på skole han ha primærnøkler som er brukernavnene deres"
+      },
+    "b":{
+      "svar": "Fritidsbåter kan bruke registreringsnummer"
+      },
+    "c":{
+      "svar": "Latinske eller greske navn på planten"
+      },
+    "d":{
+      "svar": "Mobilnummer"
+      },
+    "e":{
+      "svar": "Distangse fra jorda"
+      }
+    },
+  "3":{
+    "svar": "Kandidatnøkler er alle de ulike alternativene man kan bruke som primærnøkler"
+    },
+  "4":{
+    "svar": "Fremgansnøkkel blir brukt for å ungå dobbeltlagring"
+  },
+  "5":{
+    "svar": "Normalisering er teknikker som blir brukt for å ungå dobbeltlagring"
+  },
+  "6":{
+    "players":{
+      "thomassj":{
+        "hinghscore": 20000000,
+        "sistaktiv": "alltid aktiv",
+        "mail": "thomsj69@yahoo.org"
+      },
+      "Mathiboy":{
+        "hinghscore": 0,
+        "sistaktiv": "igår",
+        "mail": "mathi.næss@gmail.org"
+      },
+      "JokkeMkniven":{
+        "hinghscore": 20,
+        "sistaktiv": "alltid aktiv",
+        "mail": "Jokke.Elsk.På.Bitch@tennisshappa.org"
+      }
+    }
+  },
+  "7":{
+    "Filmer":{
+      "Sharknado":{
+        "filmID": 3,
+        "resigssør": "Bob Stern",
+        "informasjon": "Universal Studios 2004"
+      },
+      "Starwars":{
+        "filmID": 5,
+        "resigssør": "Steven Spielberg",
+        "informasjon": "Paramount 2004"
+      },
+      "ET":{
+        "filmID": 8,
+        "resigssør": "Steven Spielberg",
+        "informasjon": "Paramount 2009"
+      }
+    }
+  }
+}

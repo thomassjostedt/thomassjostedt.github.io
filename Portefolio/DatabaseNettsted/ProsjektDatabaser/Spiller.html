@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Spiller</title>
+    <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyC3MoQ_GeLaH4NVnXfuVABNbDmdcoynAzo",
+        authDomain: "prosjekt-database.firebaseapp.com",
+        databaseURL: "https://prosjekt-database.firebaseio.com",
+        projectId: "prosjekt-database",
+        storageBucket: "",
+        messagingSenderId: "400136547644"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header>
+      <section>
+        <a href="index.html">
+        <img src="bilder/Logo.png" class="logo" alt=""></a>
+      </section>
+
+      <section class="lenke">
+        <a href="Spillere.html">Players</a>
+      </section>
+
+      <section class="lenke">
+        <a href="Stats.html">Stats</a>
+      </section>
+
+      <section class="lenke">
+        <a href="VideosAndMore.html">Goals and Skills</a>
+      </section>
+
+      <section class="dropdown">
+        <button class="dropbtn"><b>Info</b>
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="kontaktoss.html">Kontakt Oss</a>
+          <a href="omoss.html">Unge Talenter</a>
+          <a href="hvemervi.html">Hvem er vi</a>
+    </header>
+
+    <section class="secSpiller" style="margin-top: 100px;">
+
+    </section>
+
+    <script type="text/javascript">
+    const main = document.querySelector(".secSpiller");
+
+    let url_string = window.location.href;
+    let url = new URL(url_string);
+    let id = url.searchParams.get("id");
+
+    console.log("id");
+
+    const db = firebase.database();
+    const pokemon = db.ref("players");
+    const valgtPlayer = db.ref("players/" + id);
+
+    valgtPlayer.on("value", visPlayer);
+
+    function visPlayer(snap){
+      console.log(snap.val());
+      let key = snap.key;
+      let player = snap.val();
+      main.innerHTML = `
+      <article class="tekstbilde">
+        <div>
+          <img src=${player.bilde}>
+        </div>
+        <div>
+          <H1>${player.lastName}, ${player.firstName} #${player.draktNummer}</H1>
+          <p>Goals: ${player.antallMal}</p>
+          <p>Assists: ${player.antallAssists}</p>
+          <p>Shirt Number: ${player.draktNummer}</p>
+          <p>First Name: ${player.firstName}</p>
+          <p>Matches Played: ${player.kamperSpilt}</p>
+          <p>Last Name: ${player.lastName}</p>
+          <p>Nasjonality: ${player.nasjonality}</p>
+          <p>CleanSheets: ${player.cleanSheets}</p>
+          <p>Position: ${player.posisjon}</p>
+          <p>Saves: ${player.redninger}</p>
+
+        </div>
+      </article>
+      `;
+    }
+    </script>
+
+    <footer>
+      <center>
+        <img class="linje" src="/Users/thomassjstedt/Documents/GitHub/thomassjostedt.github.io/Fotballnettside/bilder/BlackLine.png" alt="">
+      </center>
+      <p>Kontakt oss</p>
+      <p>Manchester United Fan Page</p>
+      <p>Vendelåsen 8</p>
+      <p>1396 Nesøya</p>
+      <p>TLF: 91151565</p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="no" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Dyreklinikken</title>
+
+    <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBk7lXwydOENVzk4g4iKUXE6osjjFZgTxE",
+        authDomain: "dyreklinikkprove.firebaseapp.com",
+        databaseURL: "https://dyreklinikkprove.firebaseio.com",
+        projectId: "dyreklinikkprove",
+        storageBucket: "",
+        messagingSenderId: "626751323789"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header>
+      <nav id="menybar">
+        <button onclick="katterAZ()">Katter A-Z</button>
+        <button onclick="eldsteHunder()">3 eldste hunder</button>
+        <button onclick="beigeDyr()">Alle beige dyr</button>
+        <button onclick="dyrMT()">Dyr M-T</button>
+      </nav>
+    </header>
+    <main>
+
+    </main>
+
+    <script>
+      const main = document.querySelector("main");
+
+      const db = firebase.database();
+      const hunder = db.ref("Dyr/Hunder");
+      const katter = db.ref("Dyr/Katter");
+
+      function genererHTML(snapshot){
+        let dyr = snapshot.val();
+        main.innerHTML +=`
+            <article class="Dyr">
+              <h1>${dyr.Navn}</h1>
+              <img src="${dyr.Bilde}" alt="">
+              <p>Farge: ${dyr.Farge1}, ${dyr.Type2}</p>
+              <p>Alder: ${dyr.Alder}</p>
+            </article>
+        `;
+      }
+
+      function visAlle(){
+        main.innerHTML = ""; // sletter innholdet i main.
+        hunder.on("child_added",genererHTML);
+        katter.on("child_added", genererHTML);
+      }
+
+      function katterAZ(){
+        main.innerHTML = "";
+        katter.orderByChild("Navn").on("child_added", genererHTML);
+      }
+
+      function eldsteHunder(){
+        main.innerHTML = "";
+        hunder.orderByChild("Alder").limitToLast(3).on("child_added", genererHTML);
+      }
+
+      function beigeDyr(){
+        main.innerHTML = "";
+        hunder.orderByChild("Farge1").equalTo("Beige").on("child_added", genererHTML);
+        hunder.orderByChild("Farge2").equalTo("Beige").on("child_added", genererHTML);
+        katter.orderByChild("Farge1").equalTo("Beige").on("child_added", genererHTML);
+        katter.orderByChild("Farge2").equalTo("Beige").on("child_added", genererHTML);
+      }
+
+      function dyrMT(){
+        main.innerHTML = "";
+        hunder.orderByChild("Navn").on("child_added", genererHTML);
+        katter.orderByChild("Navn").on("child_added", genererHTML);
+      }
+
+      visAlle(); // Funksjon som kjøres når siden lastes
+
+    </script>
+
+  </body>
+</html>

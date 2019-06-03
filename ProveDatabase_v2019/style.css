@@ -1,0 +1,28 @@
+#menybar{
+  background-color:grey;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 2px;
+}
+html{
+font-size: 100%;
+}
+body{
+  background-color: lightblue;
+  font-family: sans-serif;
+  color:white;
+  }
+
+main{
+  max-width: 970px;
+  margin: auto;
+  padding-top: 4rem;
+  display: grid;
+  grid-template-rows: 400px 400px 400px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 2rem;
+  }

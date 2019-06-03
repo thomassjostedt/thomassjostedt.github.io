@@ -1,0 +1,19 @@
+{
+  "kontaktliste":{
+    "1":{
+      "First name":"Thomas",
+      "Last name":"Sjostedt",
+      "Telefon":91151565
+    },
+    "2":{
+      "First name":"Mathias",
+      "Last name":"Ness",
+      "Telefon":91151545
+    },
+    "3":{
+      "Adresse": "Vendelaasen 9",
+      "Fødslesdag": "20/7-2001",
+      "Yndlingsmat": "SUU-SHIII",
+    }
+  }
+}

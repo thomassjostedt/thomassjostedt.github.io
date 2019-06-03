@@ -1,0 +1,48 @@
+html{
+  font-size: 100%;
+}
+body{
+  background-color: darkorange;
+  font-family: sans-serif;
+  color:white;
+}
+main{
+  max-width: 970px;
+  margin: auto;
+  padding-top: 4rem;
+  display: grid;
+  grid-template-rows: 400px 400px 400px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 2rem;
+}
+main article{
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+}
+main article a {
+  background-color:lightseagreen;
+  padding: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  transform: translatex(200%);
+  transition: 0.5s;
+}
+main article p{
+  font-weight: bold;
+  transform: translatex(-200%);
+  transition: 0.5s;
+
+}
+main article:hover p{
+  transform: translateX(0);
+}
+
+main article:hover a{
+  transform: translateX(0);
+}

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Stats</title>
+    <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyC3MoQ_GeLaH4NVnXfuVABNbDmdcoynAzo",
+        authDomain: "prosjekt-database.firebaseapp.com",
+        databaseURL: "https://prosjekt-database.firebaseio.com",
+        projectId: "prosjekt-database",
+        storageBucket: "",
+        messagingSenderId: "400136547644"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header>
+      <section>
+        <a href="index.html">
+        <img src="bilder/Logo.png" class="logo" alt=""></a>
+      </section>
+
+      <section class="lenke">
+        <a href="Spillere.html">Players</a>
+      </section>
+
+      <section class="lenke">
+        <a href="Stats.html">Stats</a>
+      </section>
+
+      <section class="lenke">
+        <a href="VideosAndMore.html">Goals and Skills</a>
+      </section>
+
+      <section class="dropdown">
+        <button class="dropbtn"><b>Info</b>
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="kontaktoss.html">Kontakt Oss</a>
+          <a href="omoss.html">Unge Talenter</a>
+          <a href="hvemervi.html">Hvem er vi</a>
+    </header>
+
+    <main>
+      <section class="Forsidegrid1">
+        <div class="forsidediv">
+          <a href="#">
+            <img src="bilder/rashford.jpg" onclick="visTopscorers()" alt="">
+            <p>Flest Mål</p>
+          </a>
+        </div>
+
+        <div class="forsidediv">
+          <a href="#">
+            <img src="bilder/sanches.jpg" onclick="visAssisters()" alt="">
+            <p>Flest Assist</p>
+          </a>
+        </div>
+
+        <div class="forsidediv">
+          <a href="#">
+            <img src="bilder/lingardpasses.jpg" onclick="visPassing()" alt="">
+            <p>Flest pasninger</p>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <section id="spillerStats">
+
+    </section>
+
+    <script type="text/javascript">
+      //Referanser til HTML-elementer
+      const spillerStats = document.querySelector("#spillerStats");
+
+      //referanser til database og spillere
+      const db = firebase.database();
+      const players = db.ref("players");
+
+      // Javascript-funksjon for å generere HTML-kode for målskårere
+      function genererGoal(snapshot){
+        let player = snapshot.val();
+        spillerStats.innerHTML +=`
+            <div class="players">
+              <h1>${player.lastName}, ${player.firstName} #${player.draktNummer}</h1>
+              <img src="${player.bilde}" alt="player image">
+              <p><b>Position:</b> ${player.posisjon}</p>
+              <p><b>Goals:</b> ${player.antallMal}</p>
+              <button>more</button>
+            </div>
+        `;
+      }
+      
+      function genererGoalSnudd(snapshot){
+        let key = snapshot.key;
+        let player = snapshot.val();
+        spillerStats.innerHTML =`
+            <div class="players">
+              <h1>${player.lastName}, ${player.firstName} #${player.draktNummer}</h1>
+              <img src="${player.bilde}" alt="player image">
+              <p><b>Position:</b> ${player.posisjon}</p>
+              <p><b>Goals:</b> ${player.antallMal}</p>
+              <a href="Spiller.html?id=${key}">more</a>
+            </div>
+        ` + spillerStats.innerHTML;
+      }
+
+      function visTopscorers(){
+        spillerStats.innerHTML = "";
+        players.orderByChild("antallMal").limitToLast(4).on("child_added", genererGoalSnudd);
+      }
+      //målskårere slutt
+
+      // Javascript-funksjon for å generere HTML-kode for passingspillere
+      function genererPassing(snapshot){
+
+        //snu rekkefølgen
+        //let nySec = document.createElement("div");
+
+        let player = snapshot.val();
+        spillerStats.innerHTML =`
+            <div class="players">
+              <h1>${player.lastName}, ${player.firstName} #${player.draktNummer}</h1>
+              <img src="${player.bilde}" alt="player image">
+              <p><b>Position:</b> ${player.posisjon}</p>
+              <p><b>Passes:</b> ${player.passninger}</p>
+              <button>more</button>
+            </div>
+        ` + spillerStats.innerHTML;
+        //secPlayers.insertBefore(nySec,spillerStats.childNodes[0]);;
+      }
+
+      function genererPassingSnudd(snapshot){
+
+        //snu rekkefølgen
+        //let nySec = document.createElement("div");
+        let key = snapshot.key;
+        let player = snapshot.val();
+        spillerStats.innerHTML =`
+            <div class="players">
+              <h1>${player.lastName}, ${player.firstName} #${player.draktNummer}</h1>
+              <img src="${player.bilde}" alt="player image">
+              <p><b>Position:</b> ${player.posisjon}</p>
+              <p><b>Passes:</b> ${player.passninger}</p>
+              <a href="Spiller.html?id=${key}">more</a>
+            </div>
+        ` + spillerStats.innerHTML;
+        //secPlayers.insertBefore(nySec,spillerStats.childNodes[0]);;
+      }
+
+      function visPassing(){
+        spillerStats.innerHTML = "";
+        players.orderByChild("passninger").limitToLast(4).on("child_added", genererPassingSnudd);
+      }
+      //passing slutt
+
+      // Javascript-funksjon for å generere HTML-kode for assistspillere
+      function genererAssistSnudd(snapshot){
+        let key = snapshot.key;
+        let player = snapshot.val();
+        spillerStats.innerHTML =`
+            <div class="players">
+              <h1>${player.lastName}, ${player.firstName} #${player.draktNummer}</h1>
+              <img src="${player.bilde}" alt="player image">
+              <p><b>Position:</b> ${player.posisjon}</p>
+              <p><b>Assists:</b> ${player.antallAssists}</p>
+              <a href="Spiller.html?id=${key}">more</a>
+            </div>
+        `+ spillerStats.innerHTML;
+      }
+
+      function visAssisters(){
+        spillerStats.innerHTML = "";
+        players.orderByChild("antallAssists").limitToLast(4).on("child_added", genererAssistSnudd);
+      }
+      //assists slutt
+    </script>
+
+    <footer>
+      <center>
+        <img class="linje" src="/Users/thomassjstedt/Documents/GitHub/thomassjostedt.github.io/Fotballnettside/bilder/BlackLine.png" alt="">
+      </center>
+      <p>Kontakt oss</p>
+      <p>Manchester United Fan Page</p>
+      <p>Vendelåsen 8</p>
+      <p>1396 Nesøya</p>
+      <p>TLF: 91151565</p>
+    </footer>
+  </body>
+</html>
